@@ -14,47 +14,90 @@ $(document).ready(function() {
         question: "Who was the legendary Benedictine monk who invented champagne?",
         answers: ["1","2","3","4"],
         correctAnswers: "",
-        }   
+        }       
          
     ]
 
     //Create a game object that will hold all the logic of the game.
     var game = { 
         question: questions,
-        count: countStartNumber,
+        counter: countStartNumber,
         currentQuestion: 0,
         correct: 0,
         incorrect: 0,
 
         countdown: function (){
-            //drecement counter
+            //decrement counter
+            counter--;
+
             //display counter on a page
+            $("#main").html(counter);
+
             //run timeUp
+            if(counter===0) {
+                this.timeUp();
+            }
         },
 
         loadQuestion: function(){
+            //set time variable
+            
+            //add question dynamically
 
-        },
-        nextQuestion: function(){
-
-        },
-        timeUp: function(){
-
-        },
-        results: function(){
-
-        },
-        clicked: function(){
-
-        }, 
-        answerInCorrectly: function () {
+            //for loop to go through questions
             
         },
-        answerInCorrectly: function(){
+        nextQuestion: function(){
+            //set countdown
+
+            //display counter
+
+            //increment currentQuestion
+
+            //run loadQuestion function
+        },
+
+        timeUp: function(){
+            //clear Interval
+            clearInterval(intervalId);
+
+            //display on page
+
+            //conditional - if your in current question or next question
 
         },
-        reset: function(){
 
+        results: function(){
+            //clear Interval
+
+            //display results
+            $("main").html(questions[i].correctAnswers);
+        },
+
+        clicked: function(){
+            //clear interval
+
+            //display results
+            
+        }, 
+        answerInCorrectly: function () {
+            //increment incorrect
+            incorrect++;
+
+            //display the right answer
+            $("main").html(questions[i].correctAnswers);
+
+            //condition to either go to results or go to next question
+
+        },
+        answerInCorrectly: function(){
+            //increment correct
+            correct++;
+            
+            //display that they are correct
+        },
+        reset: function(){
+            //reset function
         }
     }
 
