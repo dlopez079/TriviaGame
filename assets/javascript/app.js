@@ -5,7 +5,8 @@ $(document).ready(function() {
     $("#banner").html("<h1>Total Trivial Trivia!</h1>");
 
     //establish global variables
-    var card = $("#main");
+    var ques = $("#quest");
+    var clock = $("#timer");
     var countStartNumber = 30;
     var timer;
 
@@ -31,10 +32,13 @@ $(document).ready(function() {
             counter--;
 
             //display counter on a page
-            $("#main").html("Time Remaining: " + counter);
+            clock.html("Time Remaining: " + game.counter);
 
-            //run timeUp
-            game.timeUp();
+            //If the 
+            if (game.counter === 0) {
+                this.timeUp();
+            }
+            
         
         },
 
@@ -43,7 +47,7 @@ $(document).ready(function() {
             game.counter=30; 
 
             //add question dynamically
-            $("#ID").html(questions[i]);
+            card.html(questions[i]);
             
 
             //for loop to go through questions
@@ -66,9 +70,10 @@ $(document).ready(function() {
             clearInterval(intervalId);
 
             //display on page
+            clock.html("Times Up!!!");
 
             //conditional - if your in current question or next question
-
+            ques.html()
         },
 
         results: function(){
