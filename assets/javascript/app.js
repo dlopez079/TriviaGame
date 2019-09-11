@@ -31,21 +31,25 @@ $(document).ready(function() {
             counter--;
 
             //display counter on a page
-            $("#main").html(counter);
+            $("#main").html("Time Remaining: " + counter);
 
             //run timeUp
-            if(counter===0) {
-                this.timeUp();
-            }
+            game.timeUp();
+        
         },
 
         loadQuestion: function(){
             //set time variable
-            
+            game.counter=30; 
+
             //add question dynamically
+            $("#ID").html(questions[i]);
+            
 
             //for loop to go through questions
-            
+            for (i=0; i<questions.length; i++) {
+                console.log(questions[I]);
+            }
         },
         nextQuestion: function(){
             //set countdown
@@ -69,14 +73,16 @@ $(document).ready(function() {
 
         results: function(){
             //clear Interval
+            clearInterval(intervalId);
 
             //display results
-            $("main").html(questions[i].correctAnswers);
+            $("main").html(game.correctAnswers);
         },
 
         clicked: function(){
             //clear interval
-
+            clearInterval(intervalId);
+            
             //display results
             
         }, 
@@ -90,7 +96,7 @@ $(document).ready(function() {
             //condition to either go to results or go to next question
 
         },
-        answerInCorrectly: function(){
+        answerCorrectly: function(){
             //increment correct
             correct++;
             
