@@ -115,9 +115,9 @@ $(document).ready(function() {
             //or "ques.html(question.correctAnswers)"
 
             //ondition to either go to results or go to next question
-            if(???!== this.question[i].correctAnswers) { // Do I have to create a variable here? 
+            // if(???!== this.question[i].correctAnswers) { // Current question index and philly
 
-            }
+            // }
         },
         answerCorrectly: function(){
             //increment correct
