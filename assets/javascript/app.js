@@ -40,9 +40,9 @@ $(document).ready(function() {
             if (game.counter === 0) {
                 this.timeUp();
             }
-            
-        
         },
+
+
 
         loadQuestion: function(){
             //set time variable
