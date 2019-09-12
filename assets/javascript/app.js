@@ -9,6 +9,7 @@ $(document).ready(function() {
     var clock = $("#timer");
     var countStartNumber = 30;
     var timer;
+    var intervalId; 
 
     var questions = [
         {
@@ -45,11 +46,11 @@ $(document).ready(function() {
 
 
         loadQuestion: function(){
-            //set time variable
-            game.counter=30; 
+            //set time variable.  When we load the question the first thing that should be set is the clock or countdown.
+            clock.html(game.countdown);
 
             //add question dynamically
-            card.html(questions[i]);
+            ques.html(questions[i]);
             
 
             //for loop to go through questions
@@ -59,12 +60,16 @@ $(document).ready(function() {
         },
         nextQuestion: function(){
             //set countdown
+            clock.html(game.countdown);
 
             //display counter
-
+            clock.html(game.counter);
+            
             //increment currentQuestion
+            this.currentQuestion++;
 
             //run loadQuestion function
+            ques.html(this.currentQuestion);
         },
 
         timeUp: function(){
@@ -91,7 +96,7 @@ $(document).ready(function() {
             clearInterval(intervalId);
 
             //display results
-            $("main").html(game.correctAnswers);
+            ques.html(game.correctAnswers);
         },
 
         clicked: function(){
@@ -99,17 +104,20 @@ $(document).ready(function() {
             clearInterval(intervalId);
             
             //display results
-            
+            ques.html(this.results);
         }, 
         answerInCorrectly: function () {
             //increment incorrect
             incorrect++;
 
             //display the right answer
-            $("main").html(questions[i].correctAnswers);
+            ques.html(questions[i].correctAnswers);
+            //or "ques.html(question.correctAnswers)"
 
-            //condition to either go to results or go to next question
+            //ondition to either go to results or go to next question
+            if(???!== this.question[i].correctAnswers) { // Do I have to create a variable here? 
 
+            }
         },
         answerCorrectly: function(){
             //increment correct
@@ -122,9 +130,9 @@ $(document).ready(function() {
         }
     }
 
-    $(document).on("click", )  //that calls to reset the game function
-    $(document).on("click", )  //that calls the clicked function
-    $(document).on("click", )  //that calls the loadQuestion function.
+    $(document).on("click", game.reset)  //that calls to reset the game function
+    $(document).on("click", game.clicked)  //that calls the clicked function
+    $(document).on("click", game.loadQuestion)  //that calls the loadQuestion function.
 
 })
 
