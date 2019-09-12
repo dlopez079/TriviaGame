@@ -29,12 +29,14 @@ $(document).ready(function() {
 
         countdown: function (){
             //decrement counter
-            counter--;
+            game.counter--;
 
-            //display counter on a page
+            //I created a variable called clock which represents the section that I ID'ed as "timer" on index.html
+            //The html method is going to put "Time Remaining: + game.counter" on the webpage. 
+            //game.counter = counterStartNumber = 30
             clock.html("Time Remaining: " + game.counter);
 
-            //If the 
+            //If the count reaches 0, the application will run the function called timeup();
             if (game.counter === 0) {
                 this.timeUp();
             }
@@ -72,8 +74,16 @@ $(document).ready(function() {
             //display on page
             clock.html("Times Up!!!");
 
+            //Display Correct Answer
+            ques.html();
+
             //conditional - if your in current question or next question
-            ques.html()
+            if (this.currentQuestion === questions.length - 1){
+                setTimeout(game.results, 3*1000);
+            }
+            else (
+                setTimeout(this.nextQuestion, 3*1000)
+            );
         },
 
         results: function(){
