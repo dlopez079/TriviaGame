@@ -5,20 +5,34 @@ $(document).ready(function() {
     $("#banner").html("<h1>Total Trivial Trivia!</h1>");
 
     //establish global variables
-    var ques = $("#quest");
-    var clock = $("#timer");
+    var card = $("#quiz-area");
     var countStartNumber = 30;
     var timer;
     var intervalId; 
 
+
+    //CREATE QUESTION/ANSWER OBJECT*******
     var questions = [
-        {
+        { //QUESTION 1
         question: "Who was the legendary Benedictine monk who invented champagne?",
         answers: ["1","2","3","4"],
         correctAnswers: "",
-        }       
+        }, 
+        
+        { //QUESTION 2
+            question: "QUESTION 2 INDEX OF 1",
+            answers: ["1","2","3","4"],
+            correctAnswers: "",
+        },  
+
+        { // QUESTION 3
+            question: "QUESTION 3 INDEX OF 2",
+            answers: ["1. ANS#1","2. ANS#2","3. ANS#3","4.ANS#4"],
+            correctAnswers: "",
+            }  
          
-    ]
+    ] //END OF QUESTIONS OBJECT******** 
+
 
     //Create a game object that will hold all the logic of the game.
     var game = { 
@@ -50,7 +64,7 @@ $(document).ready(function() {
             clock.html(game.countdown);
 
             //add question dynamically
-            ques.html(questions[i]);
+            ques.html(question);
             
 
             //for loop to go through questions
@@ -130,9 +144,10 @@ $(document).ready(function() {
         }
     }
 
-    $(document).on("click", game.reset)  //that calls to reset the game function
-    $(document).on("click", game.clicked)  //that calls the clicked function
-    $(document).on("click", game.loadQuestion)  //that calls the loadQuestion function.
+    
+    $("#btn1").on("click", game.reset)  //that calls to reset the game function
+    $("#btn2").on("click", game.clicked)  //that calls the clicked function
+    $("#btn3").on("click", game.loadQuestion)  //that calls the loadQuestion function.
 
 })
 
